@@ -1,0 +1,16 @@
+{
+  "name": "erigrid-htd",
+  "owner": {
+    "name": "ERIGrid 2.0"
+  },
+  "metadata": {
+    "description": "Agent skills for the ERIGrid Holistic Test Description (HTD)."
+  },
+  "plugins": [
+    {
+      "name": "holistic-test-description",
+      "source": "./skills",
+      "description": "Skills for writing ERIGrid Holistic Test Descriptions: Test Case, Qualification Strategy and Test Specification outlines."
+    }
+  ]
+}
