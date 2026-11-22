@@ -1,0 +1,11 @@
+{
+  "name": "holistic-test-description",
+  "version": "0.1.0",
+  "description": "Skills for writing ERIGrid Holistic Test Descriptions: Test Case, Qualification Strategy and Test Specification outlines.",
+  "author": {
+    "name": "ERIGrid 2.0"
+  },
+  "homepage": "https://github.com/ERIGrid2/holistic-test-description",
+  "license": "CC-BY-4.0",
+  "skills": "./"
+}

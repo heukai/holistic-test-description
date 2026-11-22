@@ -26,6 +26,16 @@ This structured, platform-independent description format offers significant bene
 This format improves test reproducibility by enabling seamless conversion between simulation tools or lab environments.
 The use of these additional templates is documented in [12].
 
+### Agent skills
+
+The ![skills subfolder](skills) contains agent skills (e.g. for Claude Code) that guide you through writing a Test Case and its Qualification Strategy in an interview, and outline the resulting Test Specifications. In Claude Code, install them with:
+
+```
+/plugin install holistic-test-description --marketplace ERIGrid2/holistic-test-description
+```
+
+See the [skills README](skills/README.md) for other installation options.
+
 ## License
 _Documents_: [![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/80x15.png)](https://creativecommons.org/licenses/by/4.0/)
 The documents in this project are licensed under the [Creative Commons Attribution 4.0 International license](https://creativecommons.org/licenses/by/4.0/). Depending on usage, different forms of attribution are suitable. For scientific publications, we suggest to cite the paper [1] for scientific background and the latest Zenodo release [3]; for purely technical work, refer directly to this repository, ensuring it has the most current templates and guidelines.  
