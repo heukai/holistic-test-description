@@ -9,102 +9,326 @@
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
-
     "id": "@id",
     "type": "@type",
     "graph": "@graph",
-
     "name": "rdfs:label",
     "identifier": "dcterms:identifier",
     "description": "dcterms:description",
     "author": "dcterms:creator",
-    "date": {"@id": "dcterms:date", "@type": "xsd:date"},
-    "conformsTo": {"@id": "dcterms:conformsTo", "@type": "@id"},
-    "source": {"@id": "dcterms:source", "@type": "@id"},
+    "date": {
+      "@id": "dcterms:date",
+      "@type": "xsd:date"
+    },
+    "conformsTo": {
+      "@id": "dcterms:conformsTo",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "dcterms:source",
+      "@type": "@id"
+    },
     "format": "dcterms:format",
     "value": "rdf:value",
-
     "version": "htd:version",
-    "revisionOf": {"@id": "prov:wasRevisionOf", "@type": "@id"},
-    "describedRetrospectively": {"@id": "htd:describedRetrospectively", "@type": "xsd:boolean"},
-    "status": {"@id": "htd:descriptionStatus", "@type": "@vocab"},
-    "valueStatus": {"@id": "htd:valueStatus", "@type": "@vocab"},
+    "revisionOf": {
+      "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "describedRetrospectively": {
+      "@id": "htd:describedRetrospectively",
+      "@type": "xsd:boolean"
+    },
+    "status": {
+      "@id": "htd:descriptionStatus",
+      "@type": "@vocab"
+    },
+    "valueStatus": {
+      "@id": "htd:valueStatus",
+      "@type": "@vocab"
+    },
     "reason": "htd:reason",
-    "refersTo": {"@id": "htd:refersTo", "@type": "@id"},
-
+    "refersTo": {
+      "@id": "htd:refersTo",
+      "@type": "@id"
+    },
     "project": "htd:project",
     "narrative": "htd:narrative",
     "useCase": "htd:relatesToUseCase",
     "testObjectives": "htd:testObjectives",
     "plannedInputData": "htd:plannedInputData",
     "plannedOutputData": "htd:plannedOutputData",
-    "objectsUnderInvestigation": {"@id": "htd:hasObjectUnderInvestigation", "@type": "@id", "@container": "@set"},
-    "domainsUnderInvestigation": {"@id": "htd:hasDomainUnderInvestigation", "@type": "@id", "@container": "@set"},
-    "systemUnderTest": {"@id": "htd:hasSystemUnderTest", "@type": "@id"},
-    "functionsUnderInvestigation": {"@id": "htd:hasFunctionUnderInvestigation", "@type": "@id", "@container": "@set"},
-    "functionsUnderTest": {"@id": "htd:hasFunctionUnderTest", "@type": "@id", "@container": "@set"},
+    "objectsUnderInvestigation": {
+      "@id": "htd:hasObjectUnderInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "domainsUnderInvestigation": {
+      "@id": "htd:hasDomainUnderInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "systemUnderTest": {
+      "@id": "htd:hasSystemUnderTest",
+      "@type": "@id"
+    },
+    "functionsUnderInvestigation": {
+      "@id": "htd:hasFunctionUnderInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "functionsUnderTest": {
+      "@id": "htd:hasFunctionUnderTest",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "specification": "htd:functionSpecification",
-    "realisedBy": {"@id": "htd:realisedBy", "@type": "@id", "@container": "@set"},
-    "subFunctionOf": {"@id": "htd:subFunctionOf", "@type": "@id"},
-    "purposes": {"@id": "htd:hasPurposeOfInvestigation", "@type": "@id", "@container": "@set"},
-    "poiKind": {"@id": "htd:poiKind", "@type": "@vocab"},
-    "concernsObject": {"@id": "htd:concernsObject", "@type": "@id", "@container": "@set"},
-    "concernsFunction": {"@id": "htd:concernsFunction", "@type": "@id", "@container": "@set"},
-    "dependsOnPoI": {"@id": "htd:dependsOnPoI", "@type": "@id", "@container": "@set"},
+    "realisedBy": {
+      "@id": "htd:realisedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "subFunctionOf": {
+      "@id": "htd:subFunctionOf",
+      "@type": "@id"
+    },
+    "purposes": {
+      "@id": "htd:hasPurposeOfInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "poiKind": {
+      "@id": "htd:poiKind",
+      "@type": "@vocab"
+    },
+    "concernsObject": {
+      "@id": "htd:concernsObject",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "concernsFunction": {
+      "@id": "htd:concernsFunction",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "dependsOnPoI": {
+      "@id": "htd:dependsOnPoI",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "factorAnalysis": "htd:factorAnalysis",
-
-    "forPoI": {"@id": "htd:forPoI", "@type": "@id", "@container": "@set"},
-    "refinesCriterion": {"@id": "htd:refinesCriterion", "@type": "@id"},
-    "judgesPropertyOf": {"@id": "htd:judgesPropertyOf", "@type": "@id", "@container": "@set"},
+    "forPoI": {
+      "@id": "htd:forPoI",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "refinesCriterion": {
+      "@id": "htd:refinesCriterion",
+      "@type": "@id"
+    },
+    "judgesPropertyOf": {
+      "@id": "htd:judgesPropertyOf",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "combinationRule": "htd:combinationRule",
-    "forCriterion": {"@id": "htd:forCriterion", "@type": "@id", "@container": "@set"},
+    "forCriterion": {
+      "@id": "htd:forCriterion",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "measurementType": "htd:measurementType",
     "unit": "htd:unit",
-    "controllability": {"@id": "htd:controllability", "@type": "@vocab"},
+    "controllability": {
+      "@id": "htd:controllability",
+      "@type": "@vocab"
+    },
     "variabilityRange": "htd:variabilityRange",
-    "actsOn": {"@id": "htd:actsOn", "@type": "@id", "@container": "@set"},
-    "forMetric": {"@id": "htd:forMetric", "@type": "@id"},
+    "actsOn": {
+      "@id": "htd:actsOn",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "forMetric": {
+      "@id": "htd:forMetric",
+      "@type": "@id"
+    },
     "threshold": "htd:threshold",
-    "thresholdProvenance": {"@id": "htd:thresholdProvenance", "@type": "@vocab"},
+    "thresholdProvenance": {
+      "@id": "htd:thresholdProvenance",
+      "@type": "@vocab"
+    },
     "resultQuality": "htd:resultQuality",
-    "qualificationStrategy": {"@id": "htd:hasQualificationStrategy", "@type": "@id"},
+    "qualificationStrategy": {
+      "@id": "htd:hasQualificationStrategy",
+      "@type": "@id"
+    },
     "uncertaintyStrategy": "htd:uncertaintyStrategy",
-
-    "testCase": {"@id": "dcterms:isPartOf", "@type": "@id"},
-    "testObject": {"@id": "htd:hasTestObject", "@type": "@id", "@container": "@set"},
-    "testSystem": {"@id": "htd:hasTestSystem", "@type": "@id"},
+    "testCase": {
+      "@id": "dcterms:isPartOf",
+      "@type": "@id"
+    },
+    "testObject": {
+      "@id": "htd:hasTestObject",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "testSystem": {
+      "@id": "htd:hasTestSystem",
+      "@type": "@id"
+    },
     "testingApproach": "htd:testingApproach",
     "rationale": "htd:testRationale",
-    "targetMeasures": {"@id": "htd:targetMeasures", "@type": "@id", "@container": "@set"},
-    "inputParameters": {"@id": "htd:inputParameter", "@container": "@set"},
-    "outputParameters": {"@id": "htd:outputParameter", "@container": "@set"},
+    "targetMeasures": {
+      "@id": "htd:targetMeasures",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "inputParameters": {
+      "@id": "htd:inputParameter",
+      "@container": "@set"
+    },
+    "outputParameters": {
+      "@id": "htd:outputParameter",
+      "@container": "@set"
+    },
     "testDesign": "htd:testDesign",
-    "variesAttribute": {"@id": "htd:variesAttribute", "@type": "@id", "@container": "@set"},
+    "variesAttribute": {
+      "@id": "htd:variesAttribute",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "initialState": "htd:initialState",
     "stateEvolution": "htd:stateEvolution",
     "otherParameters": "htd:otherParameters",
     "temporalResolution": "htd:temporalResolution",
-    "uncertaintySources": {"@id": "htd:uncertaintySource", "@type": "@id", "@container": "@set"},
+    "uncertaintySources": {
+      "@id": "htd:uncertaintySource",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "stoppingCriteria": "htd:stoppingCriteria",
     "riMapping": "htd:hasRIMapping",
-    "qualifiesCriteria": {"@id": "htd:qualifiesCriteria", "@type": "@id", "@container": "@set"},
-    "contributesToCriteria": {"@id": "htd:contributesToCriteria", "@type": "@id", "@container": "@set"},
-    "prerequisiteFor": {"@id": "htd:prerequisiteFor", "@type": "@id", "@container": "@set"},
-    "precedes": {"@id": "htd:precedes", "@type": "@id", "@container": "@set"},
-
-    "scType": {"@id": "htd:hasSCType", "@type": "@vocab"},
-    "representations": {"@id": "htd:hasRepresentation", "@type": "@id", "@container": "@set"},
-    "representationFormat": {"@id": "htd:representationFormat", "@type": "@vocab"},
-
-    "containerSCType": {"@id": "scm:hasSCType", "@type": "@vocab"},
-    "representsArtifact": {"@id": "scm:representsHTDArtifact", "@type": "@id"},
-    "contains": {"@id": "scm:contains", "@type": "@id", "@container": "@set"},
-    "members": {"@id": "scm:member", "@type": "@id", "@container": "@set"},
+    "qualifiesCriteria": {
+      "@id": "htd:qualifiesCriteria",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "contributesToCriteria": {
+      "@id": "htd:contributesToCriteria",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "prerequisiteFor": {
+      "@id": "htd:prerequisiteFor",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "precedes": {
+      "@id": "htd:precedes",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "scType": {
+      "@id": "htd:hasSCType",
+      "@type": "@vocab"
+    },
+    "representations": {
+      "@id": "htd:hasRepresentation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "representationFormat": {
+      "@id": "htd:representationFormat",
+      "@type": "@vocab"
+    },
+    "containerSCType": {
+      "@id": "scm:hasSCType",
+      "@type": "@vocab"
+    },
+    "representsArtifact": {
+      "@id": "scm:representsHTDArtifact",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "scm:contains",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "members": {
+      "@id": "scm:member",
+      "@type": "@id",
+      "@container": "@set"
+    },
     "scmIdentifier": "scm:identifier",
-    "sutRole": {"@id": "htd:sutRole", "@type": "@vocab"},
-    "terminals": {"@id": "scm:hasTerminal", "@type": "@id", "@container": "@set"},
-    "domain": {"@id": "scm:hasDomain", "@type": "@id"},
-    "parentDomain": {"@id": "scm:parentDomain", "@type": "@id"},
-    "joins": {"@id": "scm:joins", "@type": "@id", "@container": "@set"}
+    "sutRole": {
+      "@id": "htd:sutRole",
+      "@type": "@vocab"
+    },
+    "terminals": {
+      "@id": "scm:hasTerminal",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "domain": {
+      "@id": "scm:hasDomain",
+      "@type": "@id"
+    },
+    "parentDomain": {
+      "@id": "scm:parentDomain",
+      "@type": "@id"
+    },
+    "joins": {
+      "@id": "scm:joins",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "conformsToGSC": {
+      "@id": "htd:conformsToGSC",
+      "@type": "@id"
+    },
+    "containerConformsTo": {
+      "@id": "scm:conformsTo",
+      "@type": "@id"
+    },
+    "allocatedFrom": {
+      "@id": "scm:allocatedFrom",
+      "@type": "@id"
+    },
+    "realizedByAsset": "scm:realizedByAsset",
+    "realiser": {
+      "@id": "scm:realiser",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "realised": {
+      "@id": "scm:realised",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "realizationMode": {
+      "@id": "scm:realizationMode",
+      "@type": "@vocab"
+    },
+    "realizesTestSpecification": {
+      "@id": "htd:realizesTestSpecification",
+      "@type": "@id"
+    },
+    "researchInfrastructure": "htd:inResearchInfrastructure",
+    "realisation": {
+      "@id": "htd:realisation",
+      "@type": "@vocab"
+    },
+    "realisationText": "htd:realisationText",
+    "setup": {
+      "@id": "htd:setup",
+      "@type": "@id"
+    },
+    "experimentDesign": "htd:experimentDesign",
+    "setupUncertainties": "htd:setupUncertainties",
+    "uncertaintyManagement": "htd:uncertaintyManagement",
+    "equipmentPrecision": "htd:equipmentPrecision",
+    "measurementUncertainty": "htd:measurementUncertainty",
+    "plannedDataStorage": "htd:plannedDataStorage"
   }
 }

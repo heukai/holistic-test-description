@@ -283,6 +283,53 @@
       "@type": "@id",
       "@container": "@set"
     },
+    "conformsToGSC": {
+      "@id": "htd:conformsToGSC",
+      "@type": "@id"
+    },
+    "containerConformsTo": {
+      "@id": "scm:conformsTo",
+      "@type": "@id"
+    },
+    "allocatedFrom": {
+      "@id": "scm:allocatedFrom",
+      "@type": "@id"
+    },
+    "realizedByAsset": "scm:realizedByAsset",
+    "realiser": {
+      "@id": "scm:realiser",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "realised": {
+      "@id": "scm:realised",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "realizationMode": {
+      "@id": "scm:realizationMode",
+      "@type": "@vocab"
+    },
+    "realizesTestSpecification": {
+      "@id": "htd:realizesTestSpecification",
+      "@type": "@id"
+    },
+    "researchInfrastructure": "htd:inResearchInfrastructure",
+    "realisation": {
+      "@id": "htd:realisation",
+      "@type": "@vocab"
+    },
+    "realisationText": "htd:realisationText",
+    "setup": {
+      "@id": "htd:setup",
+      "@type": "@id"
+    },
+    "experimentDesign": "htd:experimentDesign",
+    "setupUncertainties": "htd:setupUncertainties",
+    "uncertaintyManagement": "htd:uncertaintyManagement",
+    "equipmentPrecision": "htd:equipmentPrecision",
+    "measurementUncertainty": "htd:measurementUncertainty",
+    "plannedDataStorage": "htd:plannedDataStorage",
     "tc": "urn:erigrid-htd:LightDimmer:"
   },
   "graph": [
@@ -633,7 +680,7 @@
       "type": "htd:SCRepresentation",
       "representationFormat": "htd:Diagram",
       "format": "text/vnd.mermaid",
-      "value": "flowchart LR\n  ss1[\"ss1: LV grid\"] -- \"electrical: 230 V AC\" --> ss2\n  ss2[[\"ss2: Light dimmer (OuI)\"]] -- \"electrical: dimmed AC\" --> ss3[\"ss3: Bulb\"]\n  ss4([\"ss4: User\"]) -- \"haptic: press / hold\" --> ss2\n  ss3 -- \"photometric: light\" --> ss4\n  ss5([\"ss5: Ambient light\"]) -- \"photometric: ambient light\" --> ss4"
+      "value": "---\ntitle: \"TC-GSC: LightDimmer\"\n---\nflowchart LR\n  ss1[\"ss1: LV grid\"] -- \"electrical: 230 V AC\" --> ss2\n  ss2[[\"ss2: Light dimmer (OuI)\"]] -- \"electrical: dimmed AC\" --> ss3[\"ss3: Bulb\"]\n  ss4([\"ss4: User\"]) -- \"haptic: press / hold\" --> ss2\n  ss3 -- \"photometric: light\" --> ss4\n  ss5([\"ss5: Ambient light\"]) -- \"photometric: ambient light\" --> ss4"
     },
     {
       "id": "tc:SuT-graph",
@@ -941,7 +988,8 @@
         "tc:VA1",
         "tc:VA2",
         "tc:VA4"
-      ]
+      ],
+      "testSystem": "tc:TS3-SC-graph"
     },
     {
       "id": "tc:TS4",
@@ -963,6 +1011,407 @@
       "targetMeasures": [
         "tc:TM4"
       ]
+    },
+    {
+      "id": "tc:TS3-SC",
+      "type": "htd:SpecificSystemConfigurationArtifact",
+      "name": "TS-SC: LightDimmer.TS3",
+      "scType": "htd:TS-SC",
+      "conformsToGSC": "tc:SuT",
+      "representations": [
+        "tc:TS3-SC-figure",
+        "tc:TS3-SC-graph"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC-figure",
+      "type": "htd:SCRepresentation",
+      "representationFormat": "htd:Diagram",
+      "format": "text/vnd.mermaid",
+      "value": "---\ntitle: \"TS-SC: LightDimmer.TS3\"\n---\nflowchart LR\n  ss1[\"ss1: LV supply 240 V / 50 Hz\"] -- \"electrical: 240 V AC\" --> ss2\n  ss2[[\"ss2: Light dimmer (OuI)\"]] -- \"electrical: dimmed AC\" --> ss3[\"ss3: Bulb under test\"]\n  ss4([\"ss4: Operator\"]) -- \"haptic: tap / hold\" --> ss2\n  ss3 -- \"photometric: light\" --> ss4"
+    },
+    {
+      "id": "tc:TS3-SC-graph",
+      "type": [
+        "htd:SCRepresentation",
+        "scm:SystemConfigurationContainer"
+      ],
+      "representationFormat": "htd:RDF_OWL",
+      "representsArtifact": "tc:TS3-SC",
+      "containerSCType": "htd:TS-SC",
+      "containerConformsTo": "tc:SuT-graph",
+      "contains": [
+        "tc:TS3-SC.user",
+        "tc:TS3-SC.bulb",
+        "tc:TS3-SC.dimmer",
+        "tc:TS3-SC.grid",
+        "tc:TS3-SC.grid.t1",
+        "tc:TS3-SC.dimmer.t1",
+        "tc:TS3-SC.cp1",
+        "tc:TS3-SC.dimmer.t2",
+        "tc:TS3-SC.bulb.t1",
+        "tc:TS3-SC.cp2",
+        "tc:TS3-SC.user.t1",
+        "tc:TS3-SC.dimmer.t3",
+        "tc:TS3-SC.cp3",
+        "tc:TS3-SC.bulb.t2",
+        "tc:TS3-SC.user.t2",
+        "tc:TS3-SC.cp4"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC.grid",
+      "type": "scm:Component",
+      "scmIdentifier": "ss1",
+      "name": "LV supply, 240 V / 50 Hz, single phase",
+      "terminals": [
+        "tc:TS3-SC.grid.t1"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC.dimmer",
+      "type": "scm:Component",
+      "scmIdentifier": "ss2",
+      "name": "Light dimmer (OuI)",
+      "terminals": [
+        "tc:TS3-SC.dimmer.t1",
+        "tc:TS3-SC.dimmer.t2",
+        "tc:TS3-SC.dimmer.t3"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC.bulb",
+      "type": "scm:Component",
+      "scmIdentifier": "ss3",
+      "name": "Bulb under test, one sample per run (type and sample per VA3, VA4)",
+      "terminals": [
+        "tc:TS3-SC.bulb.t1",
+        "tc:TS3-SC.bulb.t2"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC.user",
+      "type": "scm:Component",
+      "scmIdentifier": "ss4",
+      "name": "Operator pressing the button (tap / hold sequence of the test design)",
+      "terminals": [
+        "tc:TS3-SC.user.t1",
+        "tc:TS3-SC.user.t2"
+      ],
+      "sutRole": "htd:Actor"
+    },
+    {
+      "id": "tc:TS3-SC.grid.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-SC.dimmer.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-SC.cp1",
+      "type": "scm:ConnectionPoint",
+      "name": "electrical: 240 V AC",
+      "joins": [
+        "tc:TS3-SC.grid.t1",
+        "tc:TS3-SC.dimmer.t1"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC.dimmer.t2",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-SC.bulb.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-SC.cp2",
+      "type": "scm:ConnectionPoint",
+      "name": "electrical: dimmed AC",
+      "joins": [
+        "tc:TS3-SC.dimmer.t2",
+        "tc:TS3-SC.bulb.t1"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC.user.t1",
+      "type": "scm:Terminal",
+      "domain": "tc:Haptic"
+    },
+    {
+      "id": "tc:TS3-SC.dimmer.t3",
+      "type": "scm:Terminal",
+      "domain": "tc:Haptic"
+    },
+    {
+      "id": "tc:TS3-SC.cp3",
+      "type": "scm:ConnectionPoint",
+      "name": "haptic: tap / hold",
+      "joins": [
+        "tc:TS3-SC.user.t1",
+        "tc:TS3-SC.dimmer.t3"
+      ]
+    },
+    {
+      "id": "tc:TS3-SC.bulb.t2",
+      "type": "scm:Terminal",
+      "domain": "tc:Photometric"
+    },
+    {
+      "id": "tc:TS3-SC.user.t2",
+      "type": "scm:Terminal",
+      "domain": "tc:Photometric"
+    },
+    {
+      "id": "tc:TS3-SC.cp4",
+      "type": "scm:ConnectionPoint",
+      "name": "photometric: light",
+      "joins": [
+        "tc:TS3-SC.bulb.t2",
+        "tc:TS3-SC.user.t2"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED",
+      "type": "htd:ExperimentSpecification",
+      "identifier": "LightDimmer.TS3.LED",
+      "status": "htd:Settled",
+      "name": "Characterization of dimming range and flicker with an LED bulb",
+      "realizesTestSpecification": "tc:TS3",
+      "researchInfrastructure": "B325-017",
+      "realisation": "htd:Hardware",
+      "setup": "tc:TS3-LED-ESC",
+      "experimentDesign": "The same as the test design in the Test Specification, since it is realizable at the laboratory.",
+      "equipmentPrecision": "Light meter calibrated to +/- 5 %.",
+      "measurementUncertainty": "5 % due to the light meter; no other significant uncertainty.",
+      "plannedDataStorage": "A checklist is provided and filled in."
+    },
+    {
+      "id": "tc:TS3-LED-ESC",
+      "type": "htd:SpecificSystemConfigurationArtifact",
+      "name": "E-SC: LightDimmer.TS3.LED",
+      "scType": "htd:E-SC",
+      "representations": [
+        "tc:TS3-LED-ESC-graph"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC-graph",
+      "type": [
+        "htd:SCRepresentation",
+        "scm:SystemConfigurationContainer"
+      ],
+      "representationFormat": "htd:RDF_OWL",
+      "representsArtifact": "tc:TS3-LED-ESC",
+      "containerSCType": "htd:E-SC",
+      "contains": [
+        "tc:TS3-LED-ESC.meter",
+        "tc:TS3-LED-ESC.operator",
+        "tc:TS3-LED-ESC.bulb",
+        "tc:TS3-LED-ESC.dimmer",
+        "tc:TS3-LED-ESC.plug",
+        "tc:TS3-LED-ESC.plug.t1",
+        "tc:TS3-LED-ESC.dimmer.t1",
+        "tc:TS3-LED-ESC.cp1",
+        "tc:TS3-LED-ESC.dimmer.t2",
+        "tc:TS3-LED-ESC.bulb.t1",
+        "tc:TS3-LED-ESC.cp2",
+        "tc:TS3-LED-ESC.operator.t1",
+        "tc:TS3-LED-ESC.dimmer.t3",
+        "tc:TS3-LED-ESC.cp3",
+        "tc:TS3-LED-ESC.bulb.t2",
+        "tc:TS3-LED-ESC.operator.t2",
+        "tc:TS3-LED-ESC.meter.t1",
+        "tc:TS3-LED-ESC.cp4",
+        "tc:TS3-LED-ESC.real-plug",
+        "tc:TS3-LED-ESC.real-dimmer",
+        "tc:TS3-LED-ESC.real-bulb",
+        "tc:TS3-LED-ESC.real-operator"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.plug",
+      "type": "scm:Component",
+      "scmIdentifier": "plug",
+      "name": "Grid: 240 V wall plug",
+      "terminals": [
+        "tc:TS3-LED-ESC.plug.t1"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.dimmer",
+      "type": "scm:Component",
+      "scmIdentifier": "dimmer",
+      "name": "Light dimmer switch: Biard 1 Gang White Glass Designer Touch Light Switch",
+      "terminals": [
+        "tc:TS3-LED-ESC.dimmer.t1",
+        "tc:TS3-LED-ESC.dimmer.t2",
+        "tc:TS3-LED-ESC.dimmer.t3"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.bulb",
+      "type": "scm:Component",
+      "scmIdentifier": "bulb",
+      "name": "Bulb: Ikea LEDARE 600 lm E14",
+      "terminals": [
+        "tc:TS3-LED-ESC.bulb.t1",
+        "tc:TS3-LED-ESC.bulb.t2"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.operator",
+      "type": "scm:Component",
+      "scmIdentifier": "operator",
+      "name": "Lab operator",
+      "terminals": [
+        "tc:TS3-LED-ESC.operator.t1",
+        "tc:TS3-LED-ESC.operator.t2"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.meter",
+      "type": [
+        "scm:Component",
+        "scm:InterfacingComponent"
+      ],
+      "scmIdentifier": "meter",
+      "name": "Light meter: Extech HD450",
+      "terminals": [
+        "tc:TS3-LED-ESC.meter.t1"
+      ],
+      "description": "RI component: measures TM1 (brightness). Calibrated to +/- 5 %."
+    },
+    {
+      "id": "tc:TS3-LED-ESC.plug.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.dimmer.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.cp1",
+      "type": "scm:ConnectionPoint",
+      "name": "electrical: 240 V AC",
+      "joins": [
+        "tc:TS3-LED-ESC.plug.t1",
+        "tc:TS3-LED-ESC.dimmer.t1"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.dimmer.t2",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.bulb.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.cp2",
+      "type": "scm:ConnectionPoint",
+      "name": "electrical: dimmed AC",
+      "joins": [
+        "tc:TS3-LED-ESC.dimmer.t2",
+        "tc:TS3-LED-ESC.bulb.t1"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.operator.t1",
+      "type": "scm:Terminal",
+      "domain": "tc:Haptic"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.dimmer.t3",
+      "type": "scm:Terminal",
+      "domain": "tc:Haptic"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.cp3",
+      "type": "scm:ConnectionPoint",
+      "name": "haptic: tap / hold",
+      "joins": [
+        "tc:TS3-LED-ESC.operator.t1",
+        "tc:TS3-LED-ESC.dimmer.t3"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.bulb.t2",
+      "type": "scm:Terminal",
+      "domain": "tc:Photometric"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.operator.t2",
+      "type": "scm:Terminal",
+      "domain": "tc:Photometric"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.meter.t1",
+      "type": "scm:Terminal",
+      "domain": "tc:Photometric"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.cp4",
+      "type": "scm:ConnectionPoint",
+      "name": "photometric: light",
+      "joins": [
+        "tc:TS3-LED-ESC.bulb.t2",
+        "tc:TS3-LED-ESC.operator.t2",
+        "tc:TS3-LED-ESC.meter.t1"
+      ]
+    },
+    {
+      "id": "tc:TS3-LED-ESC.real-plug",
+      "type": "scm:Realization",
+      "realiser": [
+        "tc:TS3-LED-ESC.plug"
+      ],
+      "realised": [
+        "tc:TS3-SC.grid"
+      ],
+      "realizationMode": "scm:Physical"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.real-dimmer",
+      "type": "scm:Realization",
+      "realiser": [
+        "tc:TS3-LED-ESC.dimmer"
+      ],
+      "realised": [
+        "tc:TS3-SC.dimmer"
+      ],
+      "realizationMode": "scm:Physical"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.real-bulb",
+      "type": "scm:Realization",
+      "realiser": [
+        "tc:TS3-LED-ESC.bulb"
+      ],
+      "realised": [
+        "tc:TS3-SC.bulb"
+      ],
+      "realizationMode": "scm:Physical"
+    },
+    {
+      "id": "tc:TS3-LED-ESC.real-operator",
+      "type": "scm:Realization",
+      "realiser": [
+        "tc:TS3-LED-ESC.operator"
+      ],
+      "realised": [
+        "tc:TS3-SC.user"
+      ],
+      "realizationMode": "scm:Physical"
     }
   ]
 }

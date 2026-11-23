@@ -4,7 +4,7 @@ Agent skills that help write ERIGrid Holistic Test Descriptions (HTD) together w
 
 | Skill | What it does |
 |---|---|
-| [`grill-test-case`](grill-test-case/SKILL.md) | Interviews you round by round to fill in a **Test Case**: System under Test with a figure first, then typed PoIs, test criteria, metrics, variability and quality attributes. It then builds the **Qualification Strategy**: a mapping of every PoI and Test Criterion to outlined **Test Specifications**, with dependencies and sequencing. Output: one Markdown file with the Test Case, the mapping and seeded Test Specification templates, plus the same content as JSON-LD using the HTD-O v0.2 ontology. |
+| [`grill-test-case`](grill-test-case/SKILL.md) | Interviews you round by round to fill in a **Test Case**, top-down from a goal or bottom-up from an experiment (lifting the lab setup, E-SC, to the System under Test, TC-GSC): System under Test with a figure first, then typed PoIs, test criteria, metrics, variability and quality attributes. It then builds the **Qualification Strategy**: a mapping of every PoI and Test Criterion to outlined **Test Specifications**, with dependencies and sequencing. Output: one Markdown file with the Test Case, the mapping and seeded Test Specification templates, plus the same content as JSON-LD using the HTD-O v0.2 ontology. |
 
 ## Install
 
@@ -49,6 +49,7 @@ skills/                # the plugin: only this folder is copied on install
     SKILL.md           # the interview process
     TEMPLATE.md        # Test Case fields, order, SuT figure, focus checks
     QUALIFICATION.md   # Qualification Strategy steps, notation, mapping
+    CONFIGURATIONS.md  # TC-GSC / TS-SC / E-SC / RI-SC levels, role vs RI component, bottom-up lift
     HANDOFF.md         # output format and Test Specification seeds
     JSONLD.md          # JSON-LD export: HTD-O / SCM-O mapping and checks
     htd-o.context.jsonld  # JSON-LD context, inlined into each export

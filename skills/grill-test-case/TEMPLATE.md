@@ -15,7 +15,7 @@ A field enters the frontier once the fields it depends on are settled. The order
 | 1 | **Name of the Test Case** | Short title. | — | Names the object and the concern: "Light Dimmer", "Coordinated Voltage Control in MV feeder". |
 | 2 | **Narrative** | Free text incl. use case and test objectives. | — | A few sentences: who uses the thing, in what situation, and the objectives in plain words. No equipment. |
 | 3 | **Object under Investigation (OuI)** | The component(s) (1..n) to be qualified by the test. | 2 | Identified by a system boundary, not only a function name ("the controller" is ambiguous: OuI or FuI?). |
-| 4 | **System under Test (SuT)** | Systems, subsystems, components included in the test case or setup. | 3 | The OuI plus everything it must be embedded in, named as **subsystems** (`ss1`, `ss2`…) so phase 2 can make one the OuI of a Test Specification, with a **SuT figure** (below). Flag subsystems with unknown dynamics. |
+| 4 | **System under Test (SuT)** | Systems, subsystems, components included in the test case or setup. | 3 | A **TC-GSC** (`CONFIGURATIONS.md`): the OuI plus the roles from the real use case it must be embedded in, as types with multiplicities, named as **subsystems** (`ss1`, `ss2`…) so phase 2 can make one the OuI of a Test Specification, with a **SuT figure** (below). Flag subsystems with unknown dynamics. |
 | 5 | **Domain under Investigation (DuI)** | Relevant domains or sub-domains of test parameters and connectivity. | 4 | Electrical, thermal, ICT, market, haptic… with sub-domain ("LV distribution, 50 Hz"). Every connection type in the SuT figure belongs to a listed domain. |
 | 6 | **Function(s) under Investigation (FuI)** | The referenced specification of a function realized by the OuI. | 2, 3 | Each FuI as behaviour, ideally with its reference (datasheet, grid code, requirement ID). |
 | 7 | **Functions under Test (FuT)** | Functions relevant to the SuT's operation, incl. FuI and OuI–SuT interactions. | 4, 6 | FuI plus supporting functions, each attached to the subsystem that realizes it, with sub-FuTs where a function decomposes. |
@@ -28,7 +28,7 @@ A field enters the frontier once the fields it depends on are settled. The order
 
 ## SuT figure
 
-The SuT is settled only with a figure. Two sources:
+The SuT is settled only with a figure: the TC-GSC figure. Title it with its level (`TC-GSC: <TestCaseID>`). Two sources:
 
 - **The user's own figure.** Ask for one when the SuT question first comes up. Read the image, list the subsystems and connections you see, and ask about anything ambiguous. Reference it by path; keep its labels and the `ssN` list in sync, and turn every mismatch into a question.
 - **A drafted figure.** Without one, draft a Mermaid diagram and refine it each round with the user:
@@ -56,6 +56,7 @@ Run these every round, on settled and draft values. A failed check becomes a que
 - **OuI bounded.** The OuI is a system boundary, distinct from its FuI.
 - **Traceability.** PoI → OuI/FuI; TCR → PoI; TM → TCR; QA → TM. No orphans in either direction; every PoI has at least one TCR.
 - **SuT is minimal.** Every SuT element is needed to exercise a FuT or produce a VA.
+- **SuT is generic.** No lab, platform or equipment names in the SuT figure or the SuT list. An emulator or simulator is renamed to the role it stands in for; measuring, actuating and automation equipment is an RI component and leaves the SuT (`CONFIGURATIONS.md`).
 - **SuT figure agrees.** Every `ssN` appears in the figure, every edge domain is in the DuI, and every FuT sits on a subsystem in the figure.
 - **Measurable.** Every TM can, in principle, be measured or computed from the SuT. Propose a standard metric where one exists.
-- **Level discipline.** Lab names, equipment models, step sequences, sample rates and initial states are parked as seeds.
+- **Level discipline.** Lab names, equipment models, step sequences, sample rates and initial states are parked as seeds; equipment goes to the E-SC mapping table.

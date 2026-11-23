@@ -37,13 +37,13 @@ Vocabularies:
 | Qualification Strategy | `qualificationStrategy` (on the TC) → node with `description` (the free text) and `version` | `htd:QualificationStrategy` |
 | Test Specification | `testCase` → the TC; `identifier` `<TestCaseID>.TSn`; `name` = subject; `status` `htd:Seed`; `version` | `htd:TestSpecification` |
 | TS OuI (decomposition dependency `TC.SuT.ssN → TSi.OuI`) | `testObject` → component | |
-| TS specific test system | `testSystem` → a second `scm:Region` in the same container, over the components this TS uses (only where the session drew a subset) | `scm:Region` |
+| TS specific test system | `testSystem` → the TS-SC container (see *Configuration levels*); where the session only cut the SuT figure without concrete values, a second `scm:Region` in the TC-GSC container instead | TS-SC container or `scm:Region` |
 | Matrix cell Q / C | `qualifiesCriteria` / `contributesToCriteria` → TCR; for C cells, `combinationRule` (text) on the TCR | |
 | Matrix cell P, sequencing | `prerequisiteFor` → TS, always with `precedes` → the same TS and a `testObject`; `precedes` → TS for every `<` in the sequencing line; parallel TSs have no `precedes` between them | |
 | Deferred TCR | `status` `htd:Deferred` + `reason` on the TCR | |
 | TS template seeds | `testingApproach`, `rationale`, `targetMeasures` → TMs, `inputParameters`, `outputParameters`, `testDesign`, `variesAttribute` → VAs, `initialState`, `stateEvolution`, `otherParameters`, `temporalResolution`, `uncertaintySources` → uncontrollable VAs or text, `stoppingCriteria`, `riMapping` (text) | |
 
-Experiment-level notes stay in the Markdown; the JSON-LD has no Experiment Specification nodes.
+Experiment Specifications and E-SCs are written only when the session settled them, always after phase 0, otherwise when the user described an experiment (*Configuration levels*). Remaining experiment-level notes stay in the Markdown.
 
 ## SuT sketch rules
 
@@ -58,12 +58,23 @@ Inside the container:
 - Edge domains: an `scmd:` domain where one fits (`scmd:LV`, `scmd:Thermal`, `scmd:Communication`, `scmd:Control`, …); otherwise a local `scm:Domain` (`tc:Haptic`) with `parentDomain` set to the closest `scmd:` domain. Every edge domain is listed in the DuI.
 - The container `contains` the region, every component, terminal, connection point and local domain.
 
+## Configuration levels
+
+Each level is its own artefact and container, typed by `scType` / `containerSCType` (`CONFIGURATIONS.md`). The SuT sketch above is the TC-GSC.
+
+- **TS-SC** (one per Test Specification that has one): a `htd:SpecificSystemConfigurationArtifact`, `scType` `htd:TS-SC`, `conformsToGSC` → the TC-GSC artefact, with a figure (titled `TS-SC: <TS ID>`) and a container (`containerSCType` `htd:TS-SC`, `containerConformsTo` → the TC-GSC container). Its components carry the **same `scmIdentifier` as the TC-GSC role** they instantiate (`ss1`); that is the only object-level link HTD-O and SCM-O offer today. Built like the sketch: terminals, connection points, `sutRole`.
+- **E-SC** (one per Experiment Specification): a `htd:SpecificSystemConfigurationArtifact`, `scType` `htd:E-SC`, with a container (`containerSCType` `htd:E-SC`; `allocatedFrom` → the RI-SC container when the lab has one). Its components use lab names. Per realising element one `scm:Realization` (in the E-SC container) with `realiser` → E-SC component(s), `realised` → TS-SC component(s), `realizationMode` `scm:Physical` / `scm:Emulated` / `scm:Simulated`. RI components are additionally typed `scm:InterfacingComponent`, realise nothing, and state their job in `description`.
+- **Experiment Specification**: `htd:ExperimentSpecification` with `identifier` `<TS ID>.<name>`, `realizesTestSpecification` → TS, `researchInfrastructure` (text), `realisation` (`htd:Simulation`, `htd:CoSimulation`, `htd:Hardware`, `htd:HIL`, `htd:PHIL`, `htd:Field`, `htd:Mixed`), `setup` → the E-SC artefact, `experimentDesign`, `setupUncertainties`, `equipmentPrecision`, `measurementUncertainty`, `uncertaintyManagement`, `plannedDataStorage` (text).
+- **Test-bed characterization** (`RI.x → TS0.OuI`): `testObject` of TS0 → the RI component in the E-SC.
+
+The E-SC mapping table of the Markdown is the same information: one table row per `scm:Realization` or interfacing component.
+
 ## Check
 
 Before reporting the export done:
 
 1. The file parses as JSON-LD (e.g. `rdflib.Graph().parse(path, format="json-ld")`).
 2. Every `id` that is linked to is defined in the graph, and every label in the Markdown export has its node.
-3. If the HTD-O v0.2 validator is available (`python -m htdo.validate FILE`), run it. It applies the skill's focus checks as rules H01–H19 and the SCM-O shapes to the sketch. Fix every violation; report the warnings that remain and why.
+3. If the HTD-O v0.2 validator is available (`python -m htdo.validate FILE`, with `--scm core,domains,realisation` when the file has an E-SC), run it. It applies the skill's focus checks as rules H01–H19 and the SCM-O shapes to the sketch. Fix every violation; report the warnings that remain and why.
 
 Say in the report which checks ran.
