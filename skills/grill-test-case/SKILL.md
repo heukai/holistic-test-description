@@ -52,4 +52,4 @@ Work through the steps in `QUALIFICATION.md`. Done when every mapping check pass
 
 ## Done
 
-Show the final Test Case, mapping matrix and Test Specification outlines, and ask the user to confirm they reflect a shared understanding. Only after they confirm, write the output described in [`HANDOFF.md`](HANDOFF.md).
+Show the final Test Case, mapping matrix and Test Specification outlines, and ask the user to confirm they reflect a shared understanding. Only after they confirm, write the Markdown output described in [`HANDOFF.md`](HANDOFF.md) and, beside it, the JSON-LD export described in [`JSONLD.md`](JSONLD.md).

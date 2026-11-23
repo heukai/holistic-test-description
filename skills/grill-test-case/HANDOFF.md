@@ -1,6 +1,6 @@
 # Output: Test Case, Qualification Strategy, Test Specification outlines
 
-Write one Markdown file, `<TestCaseID>.test-case.md`, in the user's working directory (or where they ask). It has four parts.
+Write one Markdown file, `<TestCaseID>.test-case.md`, in the user's working directory (or where they ask). It has four parts. The same content also goes out as RDF in `<TestCaseID>.test-case.jsonld`, per `JSONLD.md`; use the same labels in both.
 
 ## 1. Test Case
 

@@ -1,0 +1,814 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "htd": "https://w3id.org/erigrid/htd-o#",
+    "scm": "https://w3id.org/erigrid/scm-o#",
+    "scmd": "https://w3id.org/erigrid/scm-o/domains#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": "@id",
+    "type": "@type",
+    "graph": "@graph",
+    "name": "rdfs:label",
+    "description": "dcterms:description",
+    "author": "dcterms:creator",
+    "version": "owl:versionInfo",
+    "date": {
+      "@id": "dcterms:date",
+      "@type": "xsd:date"
+    },
+    "source": {
+      "@id": "dcterms:source",
+      "@type": "@id"
+    },
+    "format": "dcterms:format",
+    "value": "rdf:value",
+    "status": "htd:descriptionStatus",
+    "project": "htd:project",
+    "narrative": "htd:narrative",
+    "purposes": {
+      "@id": "htd:hasPurposeOfInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "poiType": {
+      "@id": "htd:hasPoIType",
+      "@type": "@vocab"
+    },
+    "concernsObject": {
+      "@id": "htd:concernsObject",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "concernsFunction": {
+      "@id": "htd:concernsFunction",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "objectsUnderInvestigation": {
+      "@id": "htd:hasObjectUnderInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "systemUnderTest": {
+      "@id": "htd:hasSystemUnderTest",
+      "@type": "@id"
+    },
+    "domainsUnderInvestigation": {
+      "@id": "htd:hasDomainUnderInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "functionsUnderInvestigation": {
+      "@id": "htd:hasFunctionUnderInvestigation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "functionsUnderTest": {
+      "@id": "htd:hasFunctionUnderTest",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "realisedBy": {
+      "@id": "htd:realisedBy",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "specification": "htd:functionSpecification",
+    "criteria": {
+      "@id": "htd:hasTestCriteria",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "refinesCriteria": {
+      "@id": "htd:refinesCriteria",
+      "@type": "@id"
+    },
+    "targetMetrics": {
+      "@id": "htd:hasTargetMetric",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "measurementType": "htd:measurementType",
+    "unit": "htd:unit",
+    "variabilityAttributes": {
+      "@id": "htd:hasVariabilityAttribute",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "controllability": {
+      "@id": "htd:controllability",
+      "@type": "@vocab"
+    },
+    "variabilityRange": "htd:variabilityRange",
+    "actsOn": {
+      "@id": "htd:actsOn",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "qualityAttributes": {
+      "@id": "htd:hasQualityAttribute",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "forMetric": {
+      "@id": "htd:forMetric",
+      "@type": "@id"
+    },
+    "threshold": "htd:threshold",
+    "qualificationStrategy": {
+      "@id": "htd:hasQualificationStrategy",
+      "@type": "@id"
+    },
+    "testCase": {
+      "@id": "dcterms:isPartOf",
+      "@type": "@id"
+    },
+    "testObject": {
+      "@id": "htd:hasTestObject",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "testSystem": {
+      "@id": "htd:hasTestSystem",
+      "@type": "@id"
+    },
+    "testingApproach": "htd:testingApproach",
+    "qualifiesCriteria": {
+      "@id": "htd:qualifiesCriteria",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "contributesToCriteria": {
+      "@id": "htd:contributesToCriteria",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "combinationRule": "htd:combinationRule",
+    "prerequisiteFor": {
+      "@id": "htd:prerequisiteFor",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "precedes": {
+      "@id": "htd:precedes",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "variesAttribute": {
+      "@id": "htd:variesAttribute",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "rationale": "htd:testRationale",
+    "inputParameters": {
+      "@id": "htd:inputParameter",
+      "@container": "@set"
+    },
+    "outputParameters": {
+      "@id": "htd:outputParameter",
+      "@container": "@set"
+    },
+    "testDesign": "htd:testDesign",
+    "initialState": "htd:initialState",
+    "stateEvolution": "htd:stateEvolution",
+    "otherParameters": "htd:otherParameters",
+    "temporalResolution": "htd:temporalResolution",
+    "uncertaintySources": {
+      "@id": "htd:uncertaintySource",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "stoppingCriteria": "htd:stoppingCriteria",
+    "scType": {
+      "@id": "htd:hasSCType",
+      "@type": "@vocab"
+    },
+    "representations": {
+      "@id": "htd:hasRepresentation",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "representationFormat": {
+      "@id": "htd:representationFormat",
+      "@type": "@vocab"
+    },
+    "containerSCType": {
+      "@id": "scm:hasSCType",
+      "@type": "@vocab"
+    },
+    "representsArtifact": {
+      "@id": "scm:representsHTDArtifact",
+      "@type": "@id"
+    },
+    "contains": {
+      "@id": "scm:contains",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "identifier": "scm:identifier",
+    "terminals": {
+      "@id": "scm:hasTerminal",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "domain": {
+      "@id": "scm:hasDomain",
+      "@type": "@id"
+    },
+    "parentDomain": {
+      "@id": "scm:parentDomain",
+      "@type": "@id"
+    },
+    "joins": {
+      "@id": "scm:joins",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "tc": "urn:erigrid-htd:LightDimmer:"
+  },
+  "graph": [
+    {
+      "id": "tc:TC",
+      "type": "htd:HolisticTestCase",
+      "name": "Light Dimmer",
+      "author": "Tue V. Jensen",
+      "project": "Distributed controller course",
+      "version": "02",
+      "date": "2026-11-21",
+      "status": "illustrative",
+      "description": "Illustrative export of the LightDimmer example (Examples/BASIC_Light_Dimmer), restructured by the grill-test-case skill. Thresholds not in the original example are invented for illustration.",
+      "narrative": "A push-button light dimmer is marketed as working with any bulb on the market and being easy to operate for all users. This test case verifies that its switching, dimming and memory functions work as specified, characterizes how its dimming performance varies across LED and incandescent bulbs, and validates that users with different dexterity can operate it comfortably.",
+      "objectsUnderInvestigation": [
+        "tc:ss2"
+      ],
+      "systemUnderTest": "tc:SuT",
+      "domainsUnderInvestigation": [
+        "scmd:LV",
+        "tc:Haptic",
+        "tc:Photometric"
+      ],
+      "functionsUnderInvestigation": [
+        "tc:FuI1",
+        "tc:FuI2",
+        "tc:FuI3"
+      ],
+      "functionsUnderTest": [
+        "tc:FuI1",
+        "tc:FuI2",
+        "tc:FuI3",
+        "tc:FuT4",
+        "tc:FuT5"
+      ],
+      "purposes": [
+        "tc:PoI1",
+        "tc:PoI2",
+        "tc:PoI3"
+      ],
+      "qualificationStrategy": "tc:QS"
+    },
+    {
+      "id": "tc:FuI1",
+      "type": "htd:Function",
+      "name": "Toggle",
+      "specification": "A single tap toggles the light between on and off.",
+      "realisedBy": [
+        "tc:ss2"
+      ]
+    },
+    {
+      "id": "tc:FuI2",
+      "type": "htd:Function",
+      "name": "Dim / brighten",
+      "specification": "While on, a long hold first dims, then brightens the light.",
+      "realisedBy": [
+        "tc:ss2"
+      ]
+    },
+    {
+      "id": "tc:FuI3",
+      "type": "htd:Function",
+      "name": "Level memory",
+      "specification": "When turned on, the light resumes its previous dimming level.",
+      "realisedBy": [
+        "tc:ss2"
+      ]
+    },
+    {
+      "id": "tc:FuT4",
+      "type": "htd:Function",
+      "name": "Bulb light emission",
+      "realisedBy": [
+        "tc:ss3"
+      ]
+    },
+    {
+      "id": "tc:FuT5",
+      "type": "htd:Function",
+      "name": "LV supply",
+      "realisedBy": [
+        "tc:ss1"
+      ]
+    },
+    {
+      "id": "tc:PoI1",
+      "type": "htd:PurposeOfInvestigation",
+      "poiType": "htd:Verification",
+      "name": "Verify that the dimmer's toggle, dim/brighten and level-memory functions operate as specified.",
+      "concernsObject": [
+        "tc:ss2"
+      ],
+      "concernsFunction": [
+        "tc:FuI1",
+        "tc:FuI2",
+        "tc:FuI3"
+      ],
+      "criteria": [
+        "tc:TCR1a"
+      ]
+    },
+    {
+      "id": "tc:PoI2",
+      "type": "htd:PurposeOfInvestigation",
+      "poiType": "htd:Characterization",
+      "name": "Characterize how the dimming performance varies across LED and incandescent bulbs.",
+      "concernsObject": [
+        "tc:ss2"
+      ],
+      "concernsFunction": [
+        "tc:FuI2",
+        "tc:FuT4"
+      ],
+      "criteria": [
+        "tc:TCR1b",
+        "tc:TCR2"
+      ]
+    },
+    {
+      "id": "tc:PoI3",
+      "type": "htd:PurposeOfInvestigation",
+      "poiType": "htd:Validation",
+      "name": "Validate that users with different dexterity can operate the switch comfortably.",
+      "concernsObject": [
+        "tc:ss2"
+      ],
+      "concernsFunction": [
+        "tc:FuI1",
+        "tc:FuI2"
+      ],
+      "criteria": [
+        "tc:TCR3"
+      ]
+    },
+    {
+      "id": "tc:TCR1a",
+      "type": "htd:TestCriteria",
+      "name": "On/off state and restored level are correct",
+      "targetMetrics": [
+        "tc:TM1"
+      ],
+      "variabilityAttributes": [
+        "tc:VA3"
+      ],
+      "qualityAttributes": [
+        "tc:QA1"
+      ]
+    },
+    {
+      "id": "tc:TCR1b",
+      "type": "htd:TestCriteria",
+      "name": "Dimming range per bulb, relative to its undimmed baseline",
+      "targetMetrics": [
+        "tc:TM1",
+        "tc:TM2"
+      ],
+      "variabilityAttributes": [
+        "tc:VA1",
+        "tc:VA3",
+        "tc:VA4"
+      ],
+      "qualityAttributes": [
+        "tc:QA2"
+      ],
+      "combinationRule": "TM2 = dimmed brightness from TS3 divided by baseline brightness from TS1, per bulb sample; pooled per bulb type."
+    },
+    {
+      "id": "tc:TCR2",
+      "type": "htd:TestCriteria",
+      "name": "Flicker per bulb and dimming level",
+      "targetMetrics": [
+        "tc:TM3"
+      ],
+      "variabilityAttributes": [
+        "tc:VA1",
+        "tc:VA3",
+        "tc:VA4"
+      ],
+      "qualityAttributes": [
+        "tc:QA2"
+      ]
+    },
+    {
+      "id": "tc:TCR3",
+      "type": "htd:TestCriteria",
+      "name": "Touch feedback and click sound are acceptable",
+      "targetMetrics": [
+        "tc:TM4"
+      ],
+      "variabilityAttributes": [
+        "tc:VA5"
+      ],
+      "qualityAttributes": [
+        "tc:QA3"
+      ]
+    },
+    {
+      "id": "tc:TM1",
+      "type": "htd:TargetMetric",
+      "name": "Brightness",
+      "unit": "lm",
+      "measurementType": "quantitative"
+    },
+    {
+      "id": "tc:TM2",
+      "type": "htd:TargetMetric",
+      "name": "Relative dimming range",
+      "unit": "%",
+      "measurementType": "quantitative"
+    },
+    {
+      "id": "tc:TM3",
+      "type": "htd:TargetMetric",
+      "name": "Short-term light flicker Pst_LM (IEC TR 61547-1)",
+      "unit": "1",
+      "measurementType": "quantitative"
+    },
+    {
+      "id": "tc:TM4",
+      "type": "htd:TargetMetric",
+      "name": "Haptic satisfaction score",
+      "unit": "Likert 1-5",
+      "measurementType": "qualitative"
+    },
+    {
+      "id": "tc:VA1",
+      "type": "htd:VariabilityAttribute",
+      "name": "LV supply voltage",
+      "controllability": "htd:Uncontrollable",
+      "variabilityRange": "normal(mean = nominal, sd = 5 % of nominal)",
+      "actsOn": [
+        "tc:ss1"
+      ]
+    },
+    {
+      "id": "tc:VA2",
+      "type": "htd:VariabilityAttribute",
+      "name": "Ambient light",
+      "controllability": "htd:Uncontrollable",
+      "variabilityRange": "[100, 1000] W/m2 equivalent irradiance"
+    },
+    {
+      "id": "tc:VA3",
+      "type": "htd:VariabilityAttribute",
+      "name": "Bulb type",
+      "controllability": "htd:Controllable",
+      "variabilityRange": "{incandescent, LED}",
+      "actsOn": [
+        "tc:ss3"
+      ]
+    },
+    {
+      "id": "tc:VA4",
+      "type": "htd:VariabilityAttribute",
+      "name": "Bulb sample within type",
+      "controllability": "htd:Uncontrollable",
+      "variabilityRange": "normal around nominal ratings",
+      "actsOn": [
+        "tc:ss3"
+      ]
+    },
+    {
+      "id": "tc:VA5",
+      "type": "htd:VariabilityAttribute",
+      "name": "User press force and switching frequency",
+      "controllability": "htd:Controllable",
+      "variabilityRange": "users sampled across 3 sigma of the population distribution",
+      "actsOn": [
+        "tc:ss4"
+      ]
+    },
+    {
+      "id": "tc:QA1",
+      "type": "htd:QualityAttribute",
+      "forMetric": "tc:TM1",
+      "threshold": "restored brightness within +/- 5 % of the level before switch-off (illustrative)"
+    },
+    {
+      "id": "tc:QA2",
+      "type": "htd:QualityAttribute",
+      "forMetric": "tc:TM2",
+      "threshold": "95 % confidence interval per bulb type, p < 0.05 for type differences"
+    },
+    {
+      "id": "tc:QA3",
+      "type": "htd:QualityAttribute",
+      "forMetric": "tc:TM4",
+      "threshold": "at least 80 % of users rate >= 4 (illustrative)"
+    },
+    {
+      "id": "tc:SuT",
+      "type": "htd:GenericSystemConfigurationArtifact",
+      "name": "LightDimmer SuT",
+      "scType": "htd:TC-GSC",
+      "representations": [
+        "tc:SuT-figure",
+        "tc:SuT-graph"
+      ]
+    },
+    {
+      "id": "tc:SuT-figure",
+      "type": "htd:SCRepresentation",
+      "representationFormat": "htd:Diagram",
+      "format": "text/vnd.mermaid",
+      "value": "flowchart LR\n  ss1[\"ss1: LV grid\"] -- \"electrical: 230 V AC\" --> ss2\n  ss2[[\"ss2: Light dimmer (OuI)\"]] -- \"electrical: dimmed AC\" --> ss3[\"ss3: Bulb\"]\n  ss4([\"ss4: User\"]) -- \"haptic: press / hold\" --> ss2\n  ss3 -- \"photometric: light\" --> ss4"
+    },
+    {
+      "id": "tc:SuT-graph",
+      "type": [
+        "htd:SCRepresentation",
+        "scm:SystemConfigurationContainer"
+      ],
+      "representationFormat": "htd:RDF_OWL",
+      "representsArtifact": "tc:SuT",
+      "containerSCType": "htd:TC-GSC",
+      "contains": [
+        "tc:ss1",
+        "tc:ss2",
+        "tc:ss3",
+        "tc:ss4",
+        "tc:ss1.t1",
+        "tc:ss2.t1",
+        "tc:ss2.t2",
+        "tc:ss2.t3",
+        "tc:ss3.t1",
+        "tc:ss3.t2",
+        "tc:ss4.t1",
+        "tc:ss4.t2",
+        "tc:cp1",
+        "tc:cp2",
+        "tc:cp3",
+        "tc:cp4",
+        "tc:Haptic",
+        "tc:Photometric"
+      ]
+    },
+    {
+      "id": "tc:ss1",
+      "type": "scm:Component",
+      "identifier": "ss1",
+      "name": "LV grid",
+      "terminals": [
+        "tc:ss1.t1"
+      ]
+    },
+    {
+      "id": "tc:ss2",
+      "type": "scm:Component",
+      "identifier": "ss2",
+      "name": "Light dimmer",
+      "terminals": [
+        "tc:ss2.t1",
+        "tc:ss2.t2",
+        "tc:ss2.t3"
+      ]
+    },
+    {
+      "id": "tc:ss3",
+      "type": "scm:Component",
+      "identifier": "ss3",
+      "name": "Bulb",
+      "terminals": [
+        "tc:ss3.t1",
+        "tc:ss3.t2"
+      ]
+    },
+    {
+      "id": "tc:ss4",
+      "type": "scm:Component",
+      "identifier": "ss4",
+      "name": "User",
+      "terminals": [
+        "tc:ss4.t1",
+        "tc:ss4.t2"
+      ]
+    },
+    {
+      "id": "tc:ss1.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:ss2.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:ss2.t2",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:ss2.t3",
+      "type": "scm:Terminal",
+      "domain": "tc:Haptic"
+    },
+    {
+      "id": "tc:ss3.t1",
+      "type": "scm:Terminal",
+      "domain": "scmd:LV"
+    },
+    {
+      "id": "tc:ss3.t2",
+      "type": "scm:Terminal",
+      "domain": "tc:Photometric"
+    },
+    {
+      "id": "tc:ss4.t1",
+      "type": "scm:Terminal",
+      "domain": "tc:Haptic"
+    },
+    {
+      "id": "tc:ss4.t2",
+      "type": "scm:Terminal",
+      "domain": "tc:Photometric"
+    },
+    {
+      "id": "tc:cp1",
+      "type": "scm:ConnectionPoint",
+      "name": "electrical: 230 V AC",
+      "joins": [
+        "tc:ss1.t1",
+        "tc:ss2.t1"
+      ]
+    },
+    {
+      "id": "tc:cp2",
+      "type": "scm:ConnectionPoint",
+      "name": "electrical: dimmed AC",
+      "joins": [
+        "tc:ss2.t2",
+        "tc:ss3.t1"
+      ]
+    },
+    {
+      "id": "tc:cp3",
+      "type": "scm:ConnectionPoint",
+      "name": "haptic: press / hold",
+      "joins": [
+        "tc:ss4.t1",
+        "tc:ss2.t3"
+      ]
+    },
+    {
+      "id": "tc:cp4",
+      "type": "scm:ConnectionPoint",
+      "name": "photometric: light",
+      "joins": [
+        "tc:ss3.t2",
+        "tc:ss4.t2"
+      ]
+    },
+    {
+      "id": "tc:Haptic",
+      "type": "scm:Domain",
+      "name": "Haptic",
+      "parentDomain": "scmd:Mechanical"
+    },
+    {
+      "id": "tc:Photometric",
+      "type": "scm:Domain",
+      "name": "Photometric"
+    },
+    {
+      "id": "tc:QS",
+      "type": "htd:QualificationStrategy",
+      "description": "Bulb baselines (TS1) and functional verification (TS2) run in parallel. TS2 must pass before the bulb compatibility characterization (TS3) and the haptic user study (TS4). The dimming range combines TS3 with the TS1 baselines; flicker and haptic acceptance are qualified by TS3 and TS4 alone."
+    },
+    {
+      "id": "tc:TS1",
+      "type": "htd:TestSpecification",
+      "testCase": "tc:TC",
+      "status": "seed",
+      "name": "Characterize undimmed baseline brightness and flicker of each bulb sample",
+      "testObject": [
+        "tc:ss3"
+      ],
+      "testingApproach": "hardware lab test, bulb on nominal supply without dimmer",
+      "contributesToCriteria": [
+        "tc:TCR1b"
+      ],
+      "prerequisiteFor": [
+        "tc:TS3"
+      ],
+      "precedes": [
+        "tc:TS3"
+      ],
+      "variesAttribute": [
+        "tc:VA3",
+        "tc:VA4"
+      ],
+      "rationale": "Separates the dimmer's effect from bulb-to-bulb variation; feeds TS3.",
+      "outputParameters": [
+        "TM1 brightness [lm]",
+        "TM3 Pst_LM [1]"
+      ],
+      "uncertaintySources": [
+        "tc:VA1",
+        "tc:VA2",
+        "tc:VA4"
+      ]
+    },
+    {
+      "id": "tc:TS2",
+      "type": "htd:TestSpecification",
+      "testCase": "tc:TC",
+      "status": "seed",
+      "name": "Verify toggle, dim/brighten and level memory of the dimmer",
+      "testObject": [
+        "tc:ss2"
+      ],
+      "testingApproach": "hardware lab test with one reference bulb",
+      "qualifiesCriteria": [
+        "tc:TCR1a"
+      ],
+      "prerequisiteFor": [
+        "tc:TS3",
+        "tc:TS4"
+      ],
+      "precedes": [
+        "tc:TS3",
+        "tc:TS4"
+      ],
+      "inputParameters": [
+        "user tap / hold sequence"
+      ],
+      "outputParameters": [
+        "TM1 brightness [lm]"
+      ],
+      "stoppingCriteria": "test complete OR bulb fails to turn on OR bulb fails to dim"
+    },
+    {
+      "id": "tc:TS3",
+      "type": "htd:TestSpecification",
+      "testCase": "tc:TC",
+      "status": "seed",
+      "name": "Characterize dimming range and flicker across bulb types",
+      "testObject": [
+        "tc:ss2"
+      ],
+      "testingApproach": "hardware lab test; incandescent and LED as separate experiments",
+      "contributesToCriteria": [
+        "tc:TCR1b"
+      ],
+      "qualifiesCriteria": [
+        "tc:TCR2"
+      ],
+      "variesAttribute": [
+        "tc:VA3",
+        "tc:VA4"
+      ],
+      "outputParameters": [
+        "TM1 brightness [lm]",
+        "TM3 Pst_LM [1]"
+      ],
+      "uncertaintySources": [
+        "tc:VA1",
+        "tc:VA2",
+        "tc:VA4"
+      ]
+    },
+    {
+      "id": "tc:TS4",
+      "type": "htd:TestSpecification",
+      "testCase": "tc:TC",
+      "status": "seed",
+      "name": "Validate haptic operability with a user panel",
+      "testObject": [
+        "tc:ss2"
+      ],
+      "testingApproach": "user study with survey",
+      "qualifiesCriteria": [
+        "tc:TCR3"
+      ],
+      "variesAttribute": [
+        "tc:VA5"
+      ],
+      "outputParameters": [
+        "TM4 haptic satisfaction score"
+      ]
+    }
+  ]
+}
