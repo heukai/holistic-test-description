@@ -4,7 +4,7 @@ Source: ERIGrid 2.0 Holistic Test Description, https://github.com/ERIGrid2/holis
 
 ## Header
 
-Test Case ID (`TC##` or a short name, e.g. `LightDimmer`), Author, Project, Version, Date. Show it as a single confirmation line, never as a numbered question.
+Test Case ID (`TC##` or a short name, e.g. `LightDimmer`), Author, Project, Version, Date. Version is `major.minor`: `0.x` concept, `1.x` test design, `2.x` post test / documentation. Note when the description is written after the experiment (retrospective). Show it as a single confirmation line, never as a numbered question.
 
 ## Fields in dependency order
 
@@ -23,7 +23,7 @@ A field enters the frontier once the fields it depends on are settled. The order
 | 9 | **Test Criteria (TCR)** | Criteria for each PoI based on properties of the SuT; encompasses test signals and output measures. | 4, 7, 8 | Usually several per PoI, each labelled with its PoI and the subsystem whose property it judges. A TCR not directly quantifiable gets sub-criteria (a TCR hierarchy). |
 | 10 | **Target Metrics (TM)** | Measures required to quantify each test criterion. | 9 | Quantity, unit, quantitative/qualitative: "Voltage deviation [p.u.], quantitative". |
 | 11 | **Variability Attributes (VA)** | Controllable or uncontrollable factors and the required variability; ref. to PoI. | 4, 9 | Each factor marked controllable/uncontrollable, with range or distribution, the PoI it matters for, and where it enters the SuT. |
-| 12 | **Quality Attributes (QA)** | Threshold levels for test-result quality and pass/fail criteria. | 8, 10 | Pass/fail threshold per metric for Verify/Validate PoIs; result quality (confidence, repetitions, accuracy) for all. |
+| 12 | **Quality Attributes (QA)** | Threshold levels for test-result quality and pass/fail criteria. | 8, 10 | Pass/fail threshold per metric for Verify/Validate PoIs, each marked as stated in a source or assumed by the author; for Characterize PoIs, result quality (confidence, repetitions, accuracy) and no pass/fail threshold. |
 | 13 | **Qualification Strategy** | How the PoIs are met by the tests and how results combine into the PoI outcomes. | 4, 8–12 | Filled in phase 2, per `QUALIFICATION.md`. |
 
 ## SuT figure
@@ -41,7 +41,7 @@ flowchart LR
   ss3 -- "photometric: light" --> ss4
 ```
 
-Conventions: one node per subsystem labelled `ssN: name`; the OuI as a double-bordered node `[[…]]`; actors and environment as rounded nodes `([…])`; every edge labelled `domain: what flows`. The edge domains must match the DuI. Print the figure whenever the SuT changes, not every round.
+Conventions: one node per subsystem labelled `ssN: name`; the OuI as a double-bordered node `[[…]]`; actors and environment (users, ambient conditions) as rounded nodes `([…])`, numbered `ssN` like the rest; every edge labelled `domain: what flows`. The edge domains must match the DuI. Print the figure whenever the SuT changes, not every round.
 
 In phase 2, each Test Specification's *Specific Test System* is drawn as the subset of this figure it uses, with that TS's OuI double-bordered.
 

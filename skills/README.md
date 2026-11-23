@@ -4,7 +4,7 @@ Agent skills that help write ERIGrid Holistic Test Descriptions (HTD) together w
 
 | Skill | What it does |
 |---|---|
-| [`grill-test-case`](grill-test-case/SKILL.md) | Interviews you round by round to fill in a **Test Case**: System under Test with a figure first, then typed PoIs, test criteria, metrics, variability and quality attributes. It then builds the **Qualification Strategy**: a mapping of every PoI and Test Criterion to outlined **Test Specifications**, with dependencies and sequencing. Output: one Markdown file with the Test Case, the mapping and seeded Test Specification templates, plus the same content as JSON-LD using the HTD-O ontology. |
+| [`grill-test-case`](grill-test-case/SKILL.md) | Interviews you round by round to fill in a **Test Case**: System under Test with a figure first, then typed PoIs, test criteria, metrics, variability and quality attributes. It then builds the **Qualification Strategy**: a mapping of every PoI and Test Criterion to outlined **Test Specifications**, with dependencies and sequencing. Output: one Markdown file with the Test Case, the mapping and seeded Test Specification templates, plus the same content as JSON-LD using the HTD-O v0.2 ontology. |
 
 ## Install
 
